@@ -4,7 +4,6 @@ import os
 import itertools
 from datetime import datetime
 start = datetime.now()
-
 net_path = os.path.join(r"C:\!Projekty\!!!PTVBOX\ITS Lublin - update\Lublin_model_update_Melgiewska\00. Lublin_model\190415_Lublin_OSM_15.net")
 new_net_path = net_path.replace("190415_Lublin_OSM_15.net", "190415_Lublin_OSM_15_1.net")
 net_file = open(net_path, encoding="utf8")

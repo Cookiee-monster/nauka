@@ -4,27 +4,24 @@ def recite(start_verse, end_verse):
                  "seventh", "eighth", "ninth",
                  "tenth", "eleventh", "twelfth"]
 
-    gifts_list = ["twelve Drummers Drumming", "eleven Pipers Piping", "ten Lords-a-Leaping", "nine Ladies Dancing",
-                  "eight Maids-a-Milking", "seven Swans-a-Swimming", "six Geese-a-Laying", "five Gold Rings",
-                  "four Calling Birds", "three French Hens", "two Turtle Doves", "a Partridge in a Pear Tree"]
-    number_of_verses = end_verse - start_verse
-    first_day = start_verse - 1
-    result = ""
-    if number_of_verses == 0:
-        result = "On the {} day of Christmas my true love gave to me: \n".format(days_list[first_day])
-        result += "{}, \n".format(gifts_list[-start_verse])
-    else:
-        for i in range(start_verse - 1, end_verse):
-            gifts = str(gifts_list[-start_verse])
-            if i != 0:
-                for day in range(start_verse + 1, start_verse + i + 1):
-                    if day != start_verse + i:
-                        gifts += ", {}".format(gifts_list[-day])
-                    else:
-                        gifts += " and {}".format(gifts_list[-day])
+    gifts_list = ['a Partridge in a Pear Tree', 'two Turtle Doves', 'three French Hens', 'four Calling Birds',
+                  'five Gold Rings', 'six Geese-a-Laying', 'seven Swans-a-Swimming', 'eight Maids-a-Milking',
+                  'nine Ladies Dancing', 'ten Lords-a-Leaping', 'eleven Pipers Piping', 'twelve Drummers Drumming']
+    result = []
 
-            result += "On the {} day of Christmas my true love gave to me: {}.\n".format(days_list[i], gifts)
-    print(result)
+    for i in range(start_verse-1, end_verse):
+        temp_result = []
+        temp_result.append("On the {} day of Christmas my true love gave to me:".format(days_list[i]))
+        gifts = []
+        if i == 0:
+            gifts.append("{}.".format(gifts_list[i]))
+        else:
+            for day in range(i, 0, -1):
+                gifts.append("{},".format(gifts_list[day]))
+            gifts.append("and {}.".format(gifts_list[0]))
+        temp_result += gifts
+        temp_result = " ".join(temp_result)
+        result.append(temp_result)
+
     return result
 
-recite(1,1)

@@ -5,7 +5,7 @@ import itertools
 from datetime import datetime
 start = datetime.now()
 net_path = os.path.join(r"C:\!Projekty\!!!PTVBOX\ITS Lublin - update\Lublin_model_update_Melgiewska\00. Lublin_model\190415_Lublin_OSM_15.net")
-new_net_path = net_path.replace("190415_Lublin_OSM_15.net", "190415_Lublin_OSM_15_1.net")
+"""new_net_path = net_path.replace("190415_Lublin_OSM_15.net", "190415_Lublin_OSM_15_1.net")"""
 net_file = open(net_path, encoding="utf8")
 
 network_list = []
@@ -38,7 +38,7 @@ for det in detectors:
 for idx, det in itertools.zip_longest(range(index_first+3, index_last-1), list_detectors_string):
     network_list[idx] = det
 
-new_net = open(new_net_path, 'w', encoding="utf8")
+new_net = open(net_path, 'w', encoding="utf8")
 
 for line in network_list:
     if line:

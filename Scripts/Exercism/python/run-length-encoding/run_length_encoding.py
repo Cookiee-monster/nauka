@@ -19,8 +19,6 @@ def encode(string):
     return result
 
 
-
-
 def decode(string):
     result = ""
     multiplier = ""

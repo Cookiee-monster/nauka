@@ -28,9 +28,8 @@ def saddle_points(matrix):
                               == min(transposed_matrix[col_index])]
         col_index += 1
 
-    result = [{"row": candidate_max["row"]+1, "column": candidate_max["column"]+1}
-               for candidate_max in candidates_in_rows
-               if candidate_max in candidates_in_col]
+    result = [{"row": candidate_max["row"]+1, "column": candidate_max["column"]+1} for candidate_max
+              in candidates_in_rows if candidate_max in candidates_in_col]
 
     if len(result) > 0:
         return result
@@ -50,9 +49,9 @@ def translate_matrix_to_dict(matrix):
         for element in row:
             matrix_of_dict[row_index].append(
                 {
-                 "element" :  element,  # value of a cell
-                 "row" : row_index, # row of the cell
-                 "column" : col_index  # column of the cell
+                 "element":  element,  # value of a cell
+                 "row": row_index,  # row of the cell
+                 "column": col_index  # column of the cell
                 }
             )
             col_index += 1

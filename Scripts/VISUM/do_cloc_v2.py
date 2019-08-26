@@ -1,11 +1,28 @@
 # TODO Wczytywanie pliku .net poprzez tk GUI
 
 import os
+import tkinter as Tk
+from tkinter import filedialog
 import itertools
 from datetime import datetime
+
 start = datetime.now()
+"""
+def browse_net_file():
+    path = Tk.filedialog.askopenfilename(filetypes=(("Net files", "*.net"),("all files", "*.*" )))
+    return path
+
+set_path = Tk.Tk()
+
+browse_button = Tk.Button(master=set_path, text = "Browse", command = browse_net_file())
+browse_button.pack()
+
+
+set_path.mainloop()
+"""
+
 net_path = os.path.join(r"C:\!Projekty\!!!PTVBOX\ITS Lublin - update\Lublin_model_update_Melgiewska\00. Lublin_model\190610_Lublin_OSM_15.net")
-"""new_net_path = net_path.replace("190610_Lublin_OSM_15.net", "190610_Lublin_OSM_15.net")"""
+"""new_net_path = net_path.replace("190610_Lublin_OSM_15.net", "190610_Lublin_OSM_15_1.net")"""
 net_file = open(net_path, encoding="utf8")
 
 network_list = []
@@ -38,7 +55,7 @@ for det in detectors:
 for idx, det in itertools.zip_longest(range(index_first+3, index_last-1), list_detectors_string):
     network_list[idx] = det
 
-new_net = open(net_path, 'w', encoding="utf8")
+new_net = open(new_net_path, 'w', encoding="utf8")
 
 for line in network_list:
     if line:

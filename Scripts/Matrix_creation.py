@@ -47,7 +47,6 @@ class window():
 
 #Start GUI:
 win = window()
-
 while win.cont == True:
 
     required_date = win.required_date

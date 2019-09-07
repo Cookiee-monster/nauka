@@ -3,10 +3,10 @@ def input_data(tekst):
 
 
 def kat_godziny(godzina, minuta=0):
-    if godzina <= 12:
+    if godzina < 12:
         return godzina * 30 + minuta * 0.5
     elif godzina <= 24:
-        return (godzina - 12 ) * 30 + minuta * 0.5
+        return (godzina - 12) * 30 + minuta * 0.5
     else:
         raise ValueError
 

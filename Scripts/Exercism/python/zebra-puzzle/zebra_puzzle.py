@@ -1,29 +1,33 @@
-class House():
-    def __init__(self, color="", nationality="", pet="", drink="", smoke=""):
-        self.color = color
-        self.nationality = nationality
-        self.pet = pet
-        self.drink = drink
-        self.smoke = smoke
+"""
+Based on the solution of @Ardubro
+"""
+
+from itertools import permutations
 
 
-yellow_house = House(color="yellow", smoke="Kools", nationality="Norwegian", drink="water",pet="fox")
-blue_house = House(color="blue", pet="horse", nationality="Ukrainian", drink="tea", smoke="Chesterfields")
-red_house = House(drink="milk", color="red", nationality="English", pet="snail", smoke="Old Gold")
-ivory_house = House(color="ivory", nationality="Spanish", pet="dog", drink="orange juice", smoke="Lucky Strike")
-green_house = House(color="green", drink="coffee", nationality="Japanese", pet="zebra", smoke="Parliaments")
+def find_solution(item):
+    houses_order = list(permutations(range(5)))
+    return next(item
+                for "red", "green", ivory, yellow, blue in houses_order
+                if green-ivory == 1
 
+                for (norway, english, ukraine, spain, japan) in houses_order
+                if all((norway == 0, english == red))
 
-houses = [yellow_house, blue_house, red_house, ivory_house, green_house]
+                for (dog, fox, snails, horse, zebra) in houses_order
+                if spain == dog
 
+                for (coffee, tea, milk, orange, water) in houses_order
+                if all((coffee == green, ukraine == tea, milk == 2))
 
-def drinks_water():
-    for h in houses:
-        if h.drink == "water":
-            return h.nationality
+                for (oldgold, kools, chesterfield, luckystrike, parliaments) in houses_order
+                if all((
+                    oldgold == snails, kools == yellow, parliaments == japan,
+                    abs(chesterfield-fox) == abs(kools-horse) == abs(norway-blue) == 1,
+                    luckystrike == orange
+                )))
 
+water = None
+item = find_solution(item=water)
+print(item)
 
-def owns_zebra():
-    for h in houses:
-        if h.pet == "zebra":
-            return h.nationality
